@@ -10,6 +10,8 @@
     // ));
 
     $mpdf->SetHeader('Document Title|Center Text|{PAGENO}');
+    $footer = 'Footer';
+    $mpdf->SetFooter($footer);
     $mpdf->AliasNbPages('[pagetotal]');
     $mpdf->PageNo();
     $mpdf->WriteHTML('
@@ -28,8 +30,10 @@
     you would like to see in the Index
     ...rest of document <pagebreak topmargin="100"/> <h2>Index</h2>');
 
+    
     $mpdf->aliasNbPg = '[pagetotal]';
     $mpdf->WriteHTML('Some text...');
     $mpdf->WriteHTML('<columnbreak />');
     $mpdf->WriteHTML('Next column...');
+
     $mpdf->Output();
